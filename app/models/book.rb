@@ -2,6 +2,8 @@ class Book < ActiveRecord::Base
   
   validates :title, :description, :author, presence: true
 
+  belongs_to :user
+
   def available?
     published_at
   end

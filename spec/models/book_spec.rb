@@ -5,6 +5,8 @@ RSpec.describe Book, type: :model do
   it { should validate_presence_of :description }
   it { should validate_presence_of :author }
   it { should have_db_index :title }
+  it { should belong_to :user }
+  it { should have_db_index :user_id }
 
   describe 'available?' do
     let!(:book){ create :book }
