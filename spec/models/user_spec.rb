@@ -17,6 +17,5 @@ RSpec.describe User, type: :model do
     it 'should reject that user is the author' do
       expect(another_user.author_of?(book)).to be_falsy
     end
-
   end
 end
