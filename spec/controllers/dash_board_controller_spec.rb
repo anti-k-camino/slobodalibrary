@@ -8,20 +8,32 @@ RSpec.describe Admin::DashBoardController, type: :controller do
 
       context 'admin' do
         sign_in_admin
-
-        it 'should render index view' do
+        before do
           get :index
+        end
+
+        it 'should render index view' do          
           expect(response).to render_template :index
+        end
+
+        it 'render layout admin' do          
+          expect(response).to render_template("layouts/admin")
         end
       end
 
       context 'non-admin' do
         sign_in_user
-
-        it 'should not render index view' do
+        before do
           get :index
+        end
+
+        it 'should not render index view' do          
           expect(response).to_not render_template :index
         end
+
+        it 'does not render layout admin' do                    
+          expect(response).to_not render_template("layouts/admin")
+        end        
       end
     end
 
