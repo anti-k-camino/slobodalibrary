@@ -39,12 +39,12 @@ RSpec.describe Book, type: :model do
 
   describe 'weekly' do
     let!(:books){ create_list( :book, 3) }
-    let!(:book1){ create :book, published_at: DateTime.now }
-    let!(:book2){ create :book, published_at: DateTime.now }
+    let!(:published_books){ create_list(:published_book, 2)}
+    
     let!(:book3){ create :book, published_at: DateTime.now - 8 }
 
     it 'should return last week published books' do
-      expect(Book.weekly).to match_array [book1, book2]
+      expect(Book.weekly).to match_array published_books
     end
 
     it 'should not return books published more than week ago' do

@@ -42,6 +42,7 @@ end
 
 group :test do
   gem 'shoulda-matchers', github: 'thoughtbot/shoulda-matchers'
+  gem 'capybara'
 end
 
 
