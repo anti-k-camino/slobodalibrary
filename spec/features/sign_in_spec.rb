@@ -5,7 +5,7 @@ feature 'User sign in', %q{
   as a User
   I want to be able to sign in
 }do 
-  context 'ordinary user' do    
+  context 'ordinary user' do        
     scenario 'Registered user try to sign in' do
       User.create!(email: 'user@email.com', password: '123456', name: 'SomeUser')      
 
