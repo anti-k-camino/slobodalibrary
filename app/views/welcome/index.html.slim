@@ -1,4 +1,7 @@
 h2 Welcome to Sloboda Library
 h3 Books last week submissions:
 div.weekly
-  =render @books
+  -if @books.empty?
+    |No books currently available
+  -else
+    =render @books

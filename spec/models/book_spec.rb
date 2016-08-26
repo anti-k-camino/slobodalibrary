@@ -8,14 +8,14 @@ RSpec.describe Book, type: :model do
 
   describe 'available?' do
     let!(:book){ create :book }
-    let!(:avail_book){ create :book, published_at: DateTime.now }
+    let!(:published_book){ create :published_book }
 
     it 'should be not available when un-published' do
       expect(book.available?).to be_falsy
     end
 
     it 'should be available when published' do
-      expect(avail_book.available?).to be_truthy
+      expect(published_book.available?).to be_truthy
     end
   end
 
@@ -29,7 +29,7 @@ RSpec.describe Book, type: :model do
   end
 
   describe 'draft' do
-    let!(:book){ create :book, published_at: DateTime.now }
+    let!(:book){ create :published_book }
 
     it 'should make book un-available(draft)' do
       book.draft
@@ -41,14 +41,14 @@ RSpec.describe Book, type: :model do
     let!(:books){ create_list( :book, 3) }
     let!(:published_books){ create_list(:published_book, 2)}
     
-    let!(:book3){ create :book, published_at: DateTime.now - 8 }
+    let!(:out_of_date_book){ create :out_of_date_book }
 
     it 'should return last week published books' do
       expect(Book.weekly).to match_array published_books
     end
 
     it 'should not return books published more than week ago' do
-      expect(Book.weekly.include?(book3)).to be_falsy
+      expect(Book.weekly.include?(out_of_date_book)).to be_falsy
     end
 
   end
