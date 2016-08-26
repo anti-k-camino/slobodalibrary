@@ -1,8 +1,11 @@
 FactoryGirl.define do
+ sequence :title do |n|
+    "MyTitle#{n}"
+  end
+  
   factory :book do
-    title "MyString"
-    description "MyString"
-    author "MyString"
-    published_at "2016-08-26 13:04:22"
+    title
+    description 'MyDescription'
+    author 'MyAuthor'
   end
 end
