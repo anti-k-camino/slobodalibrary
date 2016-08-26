@@ -4,5 +4,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   get 'profile/index'
-  get 'dash_board/index'  
+  namespace :admin do
+    get 'dash_board/index'
+  end 
 end

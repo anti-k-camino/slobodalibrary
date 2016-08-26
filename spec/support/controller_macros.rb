@@ -7,8 +7,11 @@ module ControllerMacros
     end
   end
 
-  def malicious_case
-    let(:malicious_case){ create :user }
-    let(:question){ create :question, user: malicious_case }
+  def sign_in_admin
+    before do
+      @admin = create(:admin)
+      @request.env['devise.mapping'] = Devise.mappings[:admin]
+      sign_in @admin
+    end
   end
 end

@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
 
     def after_sign_in_path_for(current_user)
       if current_user.admin?
-        dash_board_index_path
+        admin_dash_board_index_path
       else
         profile_index_path
       end
