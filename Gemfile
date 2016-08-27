@@ -28,6 +28,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem "slim-rails"
 gem "devise"
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+gem 'remotipart', '~> 1.2'
+gem 'carrierwave'             
+gem 'mini_magick'             
+gem 'fog'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

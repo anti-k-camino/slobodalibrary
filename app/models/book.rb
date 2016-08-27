@@ -1,8 +1,9 @@
-class Book < ActiveRecord::Base
-  
+class Book < ActiveRecord::Base  
+  belongs_to :user  
+  mount_uploader :front, FrontUploader
   validates :title, :description, :author, presence: true
-
-  belongs_to :user
+  validate  :front_size
+  
 
   def available?
     published_at
@@ -19,4 +20,12 @@ class Book < ActiveRecord::Base
   def self.weekly
     where("published_at > ?", DateTime.now - 7)
   end
+
+  private
+  def front_size
+    if front.size > 5.megabytes
+      errors.add(:front, "should be less than 5MB")
+    end
+  end
+
 end

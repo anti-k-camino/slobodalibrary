@@ -5,4 +5,6 @@ p
 p
   =book.description
 p
+  =image_tag book.front.url if book.front?
+p
   =book.published_at
