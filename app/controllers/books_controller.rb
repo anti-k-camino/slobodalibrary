@@ -1,13 +1,7 @@
 class BooksController < ApplicationController
   before_action :authenticate_user!
-  def create
-    @book = Book.new(book_params)
-    @book.user = current_user
-    respond_to  do |format|
-      if @book.save
-        format.js
-      end
-    end
+  def create    
+    @book = current_user.books.create(book_params)   
   end
 
   private
