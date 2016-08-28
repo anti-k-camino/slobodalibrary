@@ -1,6 +1,7 @@
 class Book < ActiveRecord::Base  
   belongs_to :user
-  has_and_belongs_to_many :tags  
+  has_many :books_tag
+  has_many :tags, through: :books_tag  
   mount_uploader :front, FrontUploader
   validates :title, :description, :author, presence: true
   validate  :front_size
