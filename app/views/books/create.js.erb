@@ -1,1 +1,6 @@
-$('.user_books').append("<%= j render @book %>")
+<% if @book.errors.any? %>
+  $('.flash').html("<%= j render 'common/errors', res: @book %>" )
+<% else %>
+  $('.flash').html("")
+  $('.user_books').append("<%= j render @book %>")
+<% end %>

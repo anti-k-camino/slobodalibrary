@@ -6,7 +6,7 @@ class Book < ActiveRecord::Base
   
 
   def available?
-    published_at
+    published_at != nil
   end
 
   def publish

@@ -22,6 +22,4 @@ div.container
     div.col-sm-6
       div.panel.user_books
         -@user.books.each do |book|
-          =book.title          
-          =image_tag book.front.url if book.front?
-          br
+          =render 'books/book', book: book

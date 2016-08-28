@@ -1,10 +1,18 @@
-p.title
-  =book.title
-p
-  =book.author
-p
-  =book.description
-p
-  =image_tag book.front.url if book.front?
-p
-  =book.published_at
+-if book.persisted?
+  .panel id="book_#{book.id}"
+    .row
+      .col-sm-2
+        p
+          =image_tag book.front.url(:thumb) if book.front?
+      .col-sm-4
+        p.title
+          =book.title
+        p
+          =book.author
+        p
+          =book.description        
+      .col-sm-2 id="availability_#{book.id}"      
+        -if book.available?
+          =button_to 'Draft', "/books/#{book.id}/draft", class: 'btn btn-default draft', method: :patch, remote: true, data:{ id: "#{book.id}" }
+        -else
+          =button_to 'Publish', "/books/#{book.id}/publish", class: 'btn btn-default publish', method: :patch, remote: true, data:{ id: "#{book.id}" }
