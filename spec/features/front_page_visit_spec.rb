@@ -1,4 +1,4 @@
-require 'rails_helper'
+require_relative 'acceptance_helper'
 feature 'Visit root path', %q{
   In order to get aquainted with resourse
   as an unregistered user 

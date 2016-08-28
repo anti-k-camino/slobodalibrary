@@ -1,17 +1,9 @@
 class TagsController < ApplicationController
-  def index
-  end
-
-  def new
-  end
-
+  before_action :authenticate_user!
   def create
     @tag = Tag.new(tag_params)
     @tag.save
-  end  
-
-  def show
-  end
+  end 
 
   private
   def tag_params

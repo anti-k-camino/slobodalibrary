@@ -20,7 +20,7 @@ class Book < ActiveRecord::Base
 
   def self.weekly
     where("published_at > ?", DateTime.now - 7)
-  end
+  end  
 
   private
   def front_size
@@ -28,5 +28,4 @@ class Book < ActiveRecord::Base
       errors.add(:front, "should be less than 5MB")
     end
   end
-
 end
