@@ -4,5 +4,17 @@
 .frontpage_book{
   padding:5px;
   margin:3px;
-  background-color: #e8f3f9
+  border-width: 1px;
+  border-style: solid;
+  border-color: #f2f7f9
+}
+.frontpage_book:hover {
+  padding:5px;
+  margin:3px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #99ccff
+} 
+.lab{
+  color: #c6c386;
 }

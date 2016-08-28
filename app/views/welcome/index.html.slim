@@ -11,7 +11,9 @@ div.weekly
             .col-sm-2
               =image_tag book.front.url(:thumb) if book.front?
             .col-sm-4
-              p.title Title: #{book.title}              
+              p.title 
+                span.lab Title: 
+                  #{book.title}              
               p=book.author
               -if book.tags.any?
                 -book.tags.each do |tag| 
