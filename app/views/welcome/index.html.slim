@@ -5,11 +5,24 @@ div.weekly
     |No books currently available
   -else
     -@books.each do |book|
-      .panel-default
-        p.title =book.title
-        p =image_tag book.front.url(:thumb) if book.front?
-        -if user_signed_in?     
-          p =book.author
-          p =book.description
+      .panel-default.frontpage_book
+        .container
+          .row
+            .col-sm-2
+              =image_tag book.front.url(:thumb) if book.front?
+            .col-sm-4
+              p.title Title: #{book.title}              
+              p=book.author
+              -if book.tags.any?
+                -book.tags.each do |tag| 
+                  span.cat =tag.name
+              -else
+                |Untaged       
+            -if user_signed_in? 
+              .col-sm-6            
+                p=book.description                
+            -else
+              .col-sm-6
+                p=book.published_at        
       
 

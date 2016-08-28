@@ -1,0 +1,17 @@
+=simple_form_for res, html: { multipart: true }, role: 'form', remote: true do |f|
+  .form-group
+    =f.label :title, class:'hidden_label'
+    =f.text_field :title, placeholder: 'Input title...', class:'form-control'
+
+    =f.label :author, class:'hidden_label'
+    =f.text_field :author, placeholder: 'Input author...', class:'form-control'
+
+    =f.label :description, class:'hidden_label'
+    =f.text_area :description, placeholder: 'Input description...', class:'form-control'
+
+    =f.label :tags, class:'hidden_label'              
+    =f.association :tags, label: false
+
+    =button_tag 'Submit', type: 'submit', class: "btn btn-default my_submit"
+    span.front
+        =f.file_field :front, accept: 'image/jpeg,image/gif,image/png', class:'btn btn-default my_submit'

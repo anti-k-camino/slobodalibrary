@@ -1,0 +1,12 @@
+.hidden_label{
+  display: none;
+}
+.my_submit{
+  width:100%;
+}
+.book_show{
+  padding:8px;
+  margin:4px;
+  border-style: solid;
+  border-color: #c3eee7;
+}
