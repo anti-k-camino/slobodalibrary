@@ -4,4 +4,12 @@ div.weekly
   -if @books.empty?
     |No books currently available
   -else
-    =render @books
+    -@books.each do |book|
+      .panel-default
+        p.title =book.title
+        p =image_tag book.front.url(:thumb) if book.front?
+        -if user_signed_in?     
+          p =book.author
+          p =book.description
+      
+
