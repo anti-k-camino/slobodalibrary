@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
  
+  resources :tags
+
   devise_for :users
   root 'welcome#index'
   get 'profile/index'

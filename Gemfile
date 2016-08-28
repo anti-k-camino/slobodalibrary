@@ -32,6 +32,8 @@ gem 'remotipart', '~> 1.2'
 gem 'carrierwave'             
 gem 'mini_magick'             
 gem 'fog'
+gem 'simple_form'
+gem "select2-rails"
 
 group :production do
   gem 'rails_12factor'

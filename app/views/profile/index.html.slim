@@ -1,9 +1,17 @@
+javascript:
+  $(document).ready(function() {
+    $("#book_tag_ids").select2({
+    });
+  });
+
+
+
 h1 Your profile
 div.container
   div.row
     div.col-sm-6
       div.panel
-        =form_for @user.books.new, html: { multipart: true }, remote: true do |f|
+        =simple_form_for @user.books.new, html: { multipart: true }, role: 'form', remote: true do |f|
           p
             =f.label :title, class:'hidden_label'
             =f.text_field :title
@@ -13,6 +21,8 @@ div.container
           p
             =f.label :description, class:'hidden_label'
             =f.text_area :description
+          p            
+            =f.association :tags, label: false, :placeholder => 'Categories'
           p
             =f.submit
           span.front

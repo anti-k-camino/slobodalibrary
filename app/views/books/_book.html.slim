@@ -10,10 +10,15 @@
         p
           =book.author
         p
-          =book.description        
+          =book.description  
+
       .col-sm-2 id="availability_#{book.id}"
         -if user_signed_in? && current_user.author_of?(book)      
           -if book.available?
             =button_to 'Draft', "/books/#{book.id}/draft", class: 'btn btn-default draft', method: :patch, remote: true, data:{ id: "#{book.id}" }
           -else
             =button_to 'Publish', "/books/#{book.id}/publish", class: 'btn btn-default publish', method: :patch, remote: true, data:{ id: "#{book.id}" }
+    h3 Categories
+    -book.tags.each do |tag| 
+      =tag.name
+

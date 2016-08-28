@@ -1,1 +1,10 @@
 h1 Hello Admin!
+.container
+  .row
+    .col-sm-6
+      =form_for @tag, remote: true  do |f|    
+        = f.text_field :name, label: false, :class => 'form-control', :placeholder => 'Tag name'
+        = f.submit 'Save tag', :class => "btn btn-default"
+    .col-sm-6.tags_list
+      =@tags
+
