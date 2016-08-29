@@ -22,4 +22,17 @@ FactoryGirl.define do
     author 'MyAuthor'
     published_at DateTime.now - 8
   end
+
+
+  factory :front_book, class:'Book' do
+    title
+    description 'MyDescription'
+    author 'MyAuthor'
+    after :create do |b|
+      b.update_column(:front, "spec/support/Bjarne.jpg")
+    end
+  end
+
 end
+
+

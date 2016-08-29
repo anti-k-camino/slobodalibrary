@@ -68,6 +68,9 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    capybara-select2 (1.0.1)
+      capybara
+      rspec
     capybara-webkit (1.11.1)
       capybara (>= 2.3.0, < 2.8.0)
       json
@@ -314,6 +317,10 @@ GEM
     remotipart (1.2.1)
     responders (2.2.0)
       railties (>= 4.2.0, < 5.1)
+    rspec (3.5.0)
+      rspec-core (~> 3.5.0)
+      rspec-expectations (~> 3.5.0)
+      rspec-mocks (~> 3.5.0)
     rspec-core (3.5.2)
       rspec-support (~> 3.5.0)
     rspec-expectations (3.5.0)
@@ -390,6 +397,7 @@ PLATFORMS
 DEPENDENCIES
   byebug
   capybara
+  capybara-select2
   capybara-webkit
   carrierwave
   coffee-rails (~> 4.1.0)

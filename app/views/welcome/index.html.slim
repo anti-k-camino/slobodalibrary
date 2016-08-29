@@ -10,20 +10,16 @@ div.weekly
           .row
             .col-sm-2
               =image_tag book.front.url(:thumb) if book.front?
-            .col-sm-3
+            .col-sm-10
               p.title 
-                span.lab Title: 
-                  #{book.title}              
+                span.lab =book.title              
               p=book.author
+              p=book.description
               -if book.tags.any?
                 -book.tags.each do |tag| 
                   span.cat =tag.name
               -else
-                |Untaged 
-            .col-sm-7      
-              -if user_signed_in? 
-                p=book.description                
-              -else              
-                p=book.published_at        
+                |Untaged                 
+                    
       
 
