@@ -5,6 +5,8 @@ h1 Hello Admin!
       =form_for @tag, remote: true  do |f|    
         = f.text_field :name, label: false, :class => 'form-control', :placeholder => 'Tag name'
         = f.submit 'Save tag', :class => "btn btn-default"
-    .col-sm-6.tags_list
-      =@tags
+    .col-sm-2.tags_list
+      -@tags.each do|tag|
+        .panel.admin_tags =tag.name
+
 
