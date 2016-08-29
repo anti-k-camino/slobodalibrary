@@ -20,15 +20,6 @@ feature 'User adds a book', %q{
         expect(current_path).to eq profile_index_path
         expect(page).to have_content 'SomeTitle'
       end 
-    end
-    context 'without category but with front image' do
-      let!(:front_book){ create :front_book }
-      scenario 'User adds a book' , js: true do
-        sign_in user
-        visit profile_index_path 
-        save_and_open_page     
-        expect(page).to have_css("img[src*='thumb_Bjarne_Stroustrup']")
-      end 
-    end
+    end    
   end 
 end
