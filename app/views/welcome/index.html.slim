@@ -14,7 +14,7 @@ div.weekly
               p.title 
                 span.lab =book.title              
               p=book.author
-              p=book.description
+              p.description =book.description
               -if book.tags.any?
                 -book.tags.each do |tag| 
                   span.cat =tag.name
