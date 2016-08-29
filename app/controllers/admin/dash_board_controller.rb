@@ -1,5 +1,4 @@
-class Admin::DashBoardController < Admin::BaseController
-  before_action :authenticate_user!
+class Admin::DashBoardController < Admin::BaseController  
   def index
     @tag = Tag.new
     @tags = Tag.all
