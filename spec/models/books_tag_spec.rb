@@ -1,5 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe BooksTag, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+   it { should have_db_index([:book_id, :tag_id]).unique(true)}
+
 end
