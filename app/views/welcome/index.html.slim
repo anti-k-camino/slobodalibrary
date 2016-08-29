@@ -9,7 +9,7 @@ div.weekly
         .container
           .row
             .col-sm-2
-              =image_tag book.front.url(:thumb) if book.front?
+              =image_tag book.front.url(:full) if book.front?
             .col-sm-10
               p.title 
                 span.lab =book.title              
