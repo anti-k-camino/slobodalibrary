@@ -20,6 +20,22 @@ feature 'User adds a book', %q{
         expect(current_path).to eq profile_index_path
         expect(page).to have_content 'SomeTitle'
       end 
-    end    
+    end  
+
+    context 'with front image' do
+      scenario 'User adds a book and a pic', js: :true do
+        sign_in user
+         within '.new_book' do
+          fill_in 'Title', with: 'SomeTitle'
+          fill_in 'Description', with: 'SomeDescription'
+          fill_in 'Author', with: 'SomeAuthor'                    
+          attach_file 'book[front]', File.join(Rails.root, 'spec', 'fixtures', 'photo.jpeg')
+          click_on 'Submit'
+          wait_for_ajax
+        end
+      end
+    end  
   end 
+
+
 end
