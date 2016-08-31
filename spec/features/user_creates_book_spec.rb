@@ -29,12 +29,19 @@ feature 'User adds a book', %q{
           fill_in 'Title', with: 'SomeTitle'
           fill_in 'Description', with: 'SomeDescription'
           fill_in 'Author', with: 'SomeAuthor'                    
-          attach_file 'book[front]', File.join(Rails.root, 'spec', 'fixtures', 'photo.jpeg')
-          click_on 'Submit'
+          attach_file 'book[front]', File.join(Rails.root, 'spec', 'fixtures', 'photo.jpeg')                   
+          click_on 'Submit'          
           wait_for_ajax
+        end        
+        within '.book_show' do         
+          expect(page).to have_css("img[src*='photo.jpeg']")
+          expect(page).to have_content 'SomeTitle'
+          expect(page).to have_content 'SomeDescription'
+          expect(page).to have_content 'SomeAuthor'
         end
       end
-    end  
+    end 
+    
   end 
 
 

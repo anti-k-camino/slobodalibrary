@@ -1,5 +1,5 @@
-FactoryGirl.define do
+FactoryGirl.define do  
   factory :tag do
-    name "MyString"
+    name "SomeStr"
   end
 end
