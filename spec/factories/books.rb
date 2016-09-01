@@ -29,7 +29,7 @@ FactoryGirl.define do
     description 'MyDescription'
     author 'MyAuthor'
     after :create do |b|
-      b.update_column(:front, "spec/support/Bjarne.jpg")
+      b.update_column(:front, "spec/fixtures/photo.jpeg")
     end
   end
 

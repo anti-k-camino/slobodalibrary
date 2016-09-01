@@ -40,9 +40,6 @@ feature 'User adds a book', %q{
           expect(page).to have_content 'SomeAuthor'
         end
       end
-    end 
-    
-  end 
-
-
+    end   
+  end
 end
